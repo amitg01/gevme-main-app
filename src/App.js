@@ -1,23 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect, useCallback, createContext } from "react";
+
+import "./App.css";
+import Drawer from "./components/Drawer";
+import { drawerContext } from "./context/drawerContext";
 
 function App() {
+  const [showDrawer, setShowDrawer] = useState(false);
+  const [userId, setUserId] = useState(null);
+  const [activeDrawerChild, setActiveDrawerChild] = useState(null);
+
+  const handleProfile = useCallback((id) => {
+    setActiveDrawerChild("Profile");
+    handleDrawer(id);
+  }, []);
+
+  const handlePost = useCallback((id) => {
+    setActiveDrawerChild("Post");
+    handleDrawer(id);
+  }, []);
+
+  const handleDrawer = (id) => {
+    setShowDrawer(true);
+    setUserId(id);
+  };
+
+  useEffect(
+    () =>
+      (window.onmessage = function (e) {
+        if (e && typeof e.data === "string") {
+          const data = JSON.parse(e.data);
+          if (data.name === "viewProfile") {
+            handleProfile(data.id);
+          } else if (data.name === "viewPost") {
+            handlePost(data.id);
+          }
+        }
+      }),
+    []
+  );
+
+  const drawerDetails = {
+    userId,
+    activeDrawerChild,
+    setShowDrawer,
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <iframe src="http://localhost:3000/" title="table" />
+      <drawerContext.Provider value={drawerDetails}>
+        <Drawer visible={showDrawer} />
+      </drawerContext.Provider>
     </div>
   );
 }
