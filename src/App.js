@@ -24,20 +24,16 @@ function App() {
     setUserId(id);
   };
 
-  useEffect(
-    () =>
-      (window.onmessage = function (e) {
-        if (e && typeof e.data === "string") {
-          const data = JSON.parse(e.data);
-          if (data.name === "viewProfile") {
-            handleProfile(data.id);
-          } else if (data.name === "viewPost") {
-            handlePost(data.id);
-          }
-        }
-      }),
-    []
-  );
+  window.onmessage = function (e) {
+    if (e && typeof e.data === "string") {
+      const data = JSON.parse(e.data);
+      if (data.name === "viewProfile") {
+        handleProfile(data.id);
+      } else if (data.name === "viewPost") {
+        handlePost(data.id);
+      }
+    }
+  };
 
   const drawerDetails = {
     userId,
