@@ -8,15 +8,15 @@ iframe {
 }
 
 .sidebar {
-  height: 100%; /* 100% Full-height */
-  width: 0px; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
+  height: 100%;
+  width: 0px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
   right: 0;
-  background-color: #111; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
+  background-color: #fff;
+  overflow-x: hidden;
+  padding-top: 60px;
   transition-property: width;
   transition-duration: 500ms;
 }
@@ -25,12 +25,45 @@ iframe {
   width: 450px;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {
-    padding-top: 15px;
-  }
-  .sidenav a {
-    font-size: 18px;
-  }
+.sidebar_header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* Profile */
+.avatar {
+  display: grid;
+  background-color: black;
+  color: white;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  place-items: center;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
+.details {
+  margin-top: 3rem;
+}
+
+.detail {
+  margin-bottom: 2rem;
+}
+
+/* Posts */
+.posts {
+  margin: 2rem;
+  padding: 1rem;
+}
+
+.post-title {
+  font-size: large;
+  font-weight: bold;
+}
+
+.post {
+  margin-bottom: 3rem;
+  text-align: left;
 }

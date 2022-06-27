@@ -8,7 +8,10 @@ const Drawer = ({ visible }) => {
 
   return (
     <div id="mySidebar" className={`sidebar ${visible}`}>
-      <span onClick={() => drawerDetails.setShowDrawer(false)}>X</span>
+      <div className="sidebar_header">
+        <p>{drawerDetails.activeDrawerChild}</p>
+        <span onClick={() => drawerDetails.setShowDrawer(false)}>X</span>
+      </div>
       {drawerDetails.activeDrawerChild === "Profile" ? (
         <Profile />
       ) : drawerDetails.activeDrawerChild === "Post" ? (
