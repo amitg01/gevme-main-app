@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { iFrameAppUrl } from "./apis";
 
 import "./App.css";
 import Drawer from "./components/Drawer";
@@ -43,7 +44,7 @@ function App() {
 
   return (
     <div className="App">
-      <iframe src="http://localhost:3000/" title="table" />
+      <iframe src={iFrameAppUrl} title="table" />
       <drawerContext.Provider value={drawerDetails}>
         <Drawer visible={showDrawer} />
       </drawerContext.Provider>
