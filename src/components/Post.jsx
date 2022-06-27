@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { fetchPosts } from "../apis";
 import { drawerContext } from "../context/drawerContext";
 import Avatar from "./Avatar";
 
@@ -8,7 +9,7 @@ const Post = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+    fetch(fetchPosts(userId))
       .then((res) => res.json())
       .then((data) => setPosts(data));
     fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)

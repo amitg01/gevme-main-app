@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { getUser } from "../apis";
 import { drawerContext } from "../context/drawerContext";
 
 import Avatar from "./Avatar";
@@ -8,7 +9,7 @@ const Profile = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+    fetch(getUser(userId))
       .then((res) => res.json())
       .then((data) => setUser(data));
   }, [userId]);
