@@ -4,7 +4,7 @@ import Avatar from "./Avatar";
 
 const Post = () => {
   const { userId } = useContext(drawerContext);
-  const [posts, setPosts] = useState({});
+  const [posts, setPosts] = useState(null);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
