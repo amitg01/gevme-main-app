@@ -14,9 +14,9 @@ iframe {
   z-index: 1;
   top: 0;
   right: 0;
-  background-color: #fff;
+  background: #014055;
   overflow-x: hidden;
-  padding-top: 60px;
+  padding-top: 1rem;
   transition-property: width;
   transition-duration: 500ms;
 }
@@ -27,21 +27,36 @@ iframe {
 
 .sidebar_header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  padding: 0rem 2rem;
+  border-bottom: 1px solid #e2b842;
+  color: #e2b842;
+}
+
+.sidebar_header p {
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 /* Profile */
 .avatar {
   display: grid;
-  background-color: black;
-  color: white;
+  background-color: #105469;
+  color: #e2b842;
+  font-weight: bold;
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
+  border: 1px solid #e2b842;
   place-items: center;
-  margin: 0 auto;
-  margin-bottom: 1rem;
+  margin: 1rem auto;
+}
+
+.user-name {
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: #e2b842;
 }
 
 .details {
@@ -49,13 +64,13 @@ iframe {
 }
 
 .detail {
-  margin-bottom: 2rem;
+  color: #e2b842;
+  padding: 0.3rem;
 }
 
 /* Posts */
 .posts {
-  margin: 2rem;
-  padding: 1rem;
+  padding: 3rem;
 }
 
 .post-title {
@@ -66,4 +81,6 @@ iframe {
 .post {
   margin-bottom: 3rem;
   text-align: left;
+  border-bottom: 1px solid gray;
+  color: #e2b842;
 }

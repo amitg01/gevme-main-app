@@ -25,7 +25,7 @@ const Profile = () => {
         <div>
           <div>
             <Avatar user={user} />
-            <div>{user.name}</div>
+            <div className="user-name">{user.name}</div>
           </div>
           <div className="details">
             <div className="detail">

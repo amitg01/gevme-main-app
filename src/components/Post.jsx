@@ -31,7 +31,7 @@ const Post = () => {
         <div>
           <div>
             <Avatar user={user} />
-            <div>{user.name}</div>
+            <div className="user-name">{user.name}</div>
           </div>
           <div className="posts">{getPosts()}</div>
         </div>
